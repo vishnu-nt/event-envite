@@ -21,7 +21,7 @@ const CreateEvent = () => {
   const location = useLocation();
   const [eventInfo, setEventInfo] = useState(params.id ? {
     ...location.state,
-    startDate: location.state.startDate ? dayjs(location.state.startDate.startDate).format('yyyy-MM-dd') : '',
+    startDate: location.state.startDate ? dayjs(location.state.startDate).format('yyyy-MM-dd') : '',
     endDate: location.state.endDate ? dayjs(location.state.endDate).format('yyyy-MM-dd') : '',
 } : initialState);
 

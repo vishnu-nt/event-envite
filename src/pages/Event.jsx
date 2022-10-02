@@ -8,15 +8,21 @@ import bdayImg from "../assests/images/birthday-cake.png";
 const mockevent = {
   name: "Birthday Bash",
   hostedBy: "Elysia",
-  startDate: "18/08/2022 18:00",
-  endDate: "1/08/2022 13:00",
+  startDate: dayjs(),
+  endDate: dayjs(),
   venue: "Suburb, State, Postcode",
 };
 
 const Event = () => {
   const location = useLocation();
   const params = useParams();
-  const eventInfo = { ...mockevent, ...location.state };
+  const eventInfo = {
+    ...mockevent,
+    ...location.state,
+    name: location.state.name || mockevent.name, 
+    startDate: location.state.startDate || mockevent.startDate,
+    endDate: location.state.endDate || mockevent.endDate,
+  };
 
   const renderListItem = (title, subTitle, Icon) => (
     <li role="button" className="flex items-center w-full mb-4">
